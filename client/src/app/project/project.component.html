@@ -1,0 +1,72 @@
+<div cdkDropListGroup>
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div
+      id="todo"
+      cdkDropList
+      [cdkDropListData]="todo.values"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let task of todo.values" cdkDrag>
+        {{ task.title }}
+        {{ task.description }}
+      </div>
+    </div>
+    <button mat-icon-button (click)="addTask()">
+      <mat-icon> add </mat-icon>
+    </button>
+  </div>
+
+  <div class="example-container">
+    <h2>In Progress</h2>
+
+    <div
+      id="in_progress"
+      cdkDropList
+      [cdkDropListData]="inProgress.values"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let task of inProgress.values" cdkDrag>
+        {{ task.title }}
+        {{ task.description }}
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div
+      id="done"
+      cdkDropList
+      [cdkDropListData]="done.values"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let task of done.values" cdkDrag>
+        {{ task.title }}
+        {{ task.description }}
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Failed</h2>
+
+    <div
+      id="failed"
+      cdkDropList
+      [cdkDropListData]="failed.values"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let task of failed.values" cdkDrag>
+        {{ task.title }}
+        {{ task.description }}
+      </div>
+    </div>
+  </div>
+</div>

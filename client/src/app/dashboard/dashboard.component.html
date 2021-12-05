@@ -1,0 +1,60 @@
+<mat-toolbar>
+  <span>Project management</span>
+
+  <span class="spacer"></span>
+  <button
+    matBadge="7"
+    matBadgeSize="small"
+    mat-icon-button
+    [matMenuTriggerFor]="messageMenu"
+  >
+    <mat-icon>email</mat-icon>
+  </button>
+  <mat-menu #messageMenu="matMenu" xPosition="before">
+    <button mat-menu-item>Message1</button>
+    <button mat-menu-item>Message2</button>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <mat-menu #notificationMenu="matMenu" xPosition="before">
+    <button mat-menu-item>Notification1</button>
+    <button mat-menu-item>Notification2</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="accountMenu">
+    <span> Tuna Küçükertaş </span>
+    <img
+      class="avatar"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+      alt=""
+    />
+  </button>
+  <mat-menu #accountMenu="matMenu" xPosition="before">
+    <button mat-menu-item>Account</button>
+    <button mat-menu-item>Log out</button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-drawer-container class="sidenav-container">
+  <mat-drawer mode="side" opened>
+    <mat-selection-list
+      [(ngModel)]="selectedProject"
+      (selectionChange)="selectedProject = [$event.option.value]"
+      [multiple]="false"
+    >
+      <mat-list-option
+        *ngFor="let project of projects$ | async"
+        [routerLink]="'projects/' + project.id"
+        [value]="project"
+      >
+        {{ project.name }}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-project
+      [project]="selectedProject[0]"
+      *ngIf="selectedProject"
+    ></app-project>
+  </mat-drawer-content>
+</mat-drawer-container>

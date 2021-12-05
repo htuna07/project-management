@@ -1,0 +1,22 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input
+      name="title"
+      matInput
+      [(ngModel)]="data.title"
+      placeholder="Name of the task"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea
+      name="description"
+      matInput
+      [(ngModel)]="data.description"
+      placeholder="Explanation of the task"
+    ></textarea>
+  </mat-form-field>
+  <button (click)="save()" mat-button>Save</button>
+</form>
