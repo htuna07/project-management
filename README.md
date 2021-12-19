@@ -1,3 +1,3 @@
-# project-management
+# Project Management
 
-Basic project/task management system. It includes backend and client both.
+Basic project/task management system with Angular, NodeJS and PostgreSQL.
